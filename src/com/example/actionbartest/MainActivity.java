@@ -11,6 +11,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.SearchView;
 
+/**
+ * 
+ * @Description
+ * @author henry
+ * @date 2016年5月26日 下午6:03:50
+ */
 public class MainActivity extends Activity {
 	private ActionBar mActionBar;
 	private ActionBar.Tab mDayTab;

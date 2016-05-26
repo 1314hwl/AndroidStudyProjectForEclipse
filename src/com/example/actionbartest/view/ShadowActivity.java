@@ -14,8 +14,9 @@ import android.os.Bundle;
  * android:shadowRadius="1" Radius辐射光线<br>
  * </p>
  * 
+ * @Description
  * @author henry
- *
+ * @date 2016年5月26日 下午6:04:07
  */
 public class ShadowActivity extends Activity {
 
