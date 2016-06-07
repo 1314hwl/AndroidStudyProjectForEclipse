@@ -23,8 +23,40 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.actionbartest.view.ShadowActivity"
+            android:name=".view.ShadowActivity"
             android:label="@string/title_activity_shadow" >
+        </activity>
+        <activity
+            android:name=".view.Canvas001Activity"
+            android:label="@string/title_activity_canvas001" >
+        </activity>
+        <activity
+            android:name=".view.rect.MyRectActivity"
+            android:label="@string/title_activity_my_rect" >
+        </activity>
+        <activity
+            android:name=".view.AlphaBitmapActivity"
+            android:label="@string/title_activity_alpha_bitmap" >
+        </activity>
+        <activity
+            android:name=".view.grid.GridLayoutActivity"
+            android:label="@string/title_activity_grid_layout" >
+        </activity>
+        <activity
+            android:name=".view.grid.GridLayout001Activity"
+            android:label="@string/title_activity_grid_layout001" >
+        </activity>
+        <activity
+            android:name=".view.grid.GridLayout002Activity"
+            android:label="@string/title_activity_grid_layout002" >
+        </activity>
+        <activity
+            android:name=".view.grid.GridLayout003Activity"
+            android:label="@string/title_activity_grid_layout003" >
+        </activity>
+        <activity
+            android:name="com.example.actionbartest.view.grid.GridLayout004Activity"
+            android:label="@string/title_activity_grid_layout004" >
         </activity>
     </application>
 

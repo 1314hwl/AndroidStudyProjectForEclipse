@@ -39,19 +39,19 @@
         android:showAsAction="ifRoom"
         android:title="shadow_test"/>
     <item
-        android:id="@+id/action_create_event2"
+        android:id="@+id/my_view_rect"
         android:alphabeticShortcut="n"
         android:icon="@drawable/ic_launcher"
         android:orderInCategory="4"
         android:showAsAction="ifRoom"
-        android:title="2"/>
+        android:title="RectTest"/>
     <item
-        android:id="@+id/action_refresh"
+        android:id="@+id/alphabitmap_action"
         android:alphabeticShortcut="r"
         android:icon="@drawable/ic_launcher"
         android:orderInCategory="5"
         android:showAsAction="never"
-        android:title="3"/>
+        android:title="AlphaBitmap"/>
     <item
         android:id="@+id/action_search"
         android:actionViewClass="android.widget.SearchView"
@@ -60,7 +60,7 @@
         android:imeOptions="actionSearch"
         android:orderInCategory="6"
         android:showAsAction="never|collapseActionView"
-        android:title="4"/>
+        android:title="searchAction"/>
     <item
         android:id="@+id/action_select_visible_calendars"
         android:icon="@drawable/ic_launcher"

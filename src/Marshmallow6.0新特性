@@ -1,134 +1,134 @@
-Marshmallow(ÃŞ»¨ÌÇ)6.0ĞÂÌØĞÔ
+Marshmallow(æ£‰èŠ±ç³–)6.0æ–°ç‰¹æ€§
 
 Android 6.0 Changes
 Along with new features and capabilities, Android 6.0 (API level 23) includes a variety of system changes and API behavior changes. This document highlights some of the key changes that you should understand and account for in your apps.
-Ëæ×ÅĞÂµÄÌØĞÔºÍ¹¦ÄÜ,Android 6.0(API¼¶±ğ23)°üÀ¨¸÷ÖÖÏµÍ³±ä»¯ºÍAPIµÄĞĞÎª±ä»¯¡£±¾ÎÄÇ¿µ÷Ò»Ğ©¹Ø¼üµÄ±ä»¯,ÄãÓ¦¸ÃÀí½âºÍ¿¼ÂÇÔÚÄãµÄÓ¦ÓÃ³ÌĞò¡£
+éšç€æ–°çš„ç‰¹æ€§å’ŒåŠŸèƒ½,Android 6.0(APIçº§åˆ«23)åŒ…æ‹¬å„ç§ç³»ç»Ÿå˜åŒ–å’ŒAPIçš„è¡Œä¸ºå˜åŒ–ã€‚æœ¬æ–‡å¼ºè°ƒä¸€äº›å…³é”®çš„å˜åŒ–,ä½ åº”è¯¥ç†è§£å’Œè€ƒè™‘åœ¨ä½ çš„åº”ç”¨ç¨‹åºã€‚
 If you have previously published an app for Android, be aware that these changes in the platform affect your app.
-Èç¹ûÄãÓĞÒÔÇ°·¢±íµÄAndroidÓ¦ÓÃ³ÌĞò,Çë×¢Òâ,ÕâĞ©±ä»¯ÔÚÓ°ÏìÄãµÄÓ¦ÓÃ³ÌĞòÆ½Ì¨¡£
+å¦‚æœä½ æœ‰ä»¥å‰å‘è¡¨çš„Androidåº”ç”¨ç¨‹åº,è¯·æ³¨æ„,è¿™äº›å˜åŒ–åœ¨å½±å“ä½ çš„åº”ç”¨ç¨‹åºå¹³å°ã€‚
 Runtime Permissions
 This release introduces a new permissions model, where users can now directly manage app permissions at runtime. This model gives users improved visibility and control over permissions, while streamlining the installation and auto-update processes for app developers. Users can grant or revoke permissions individually for installed apps.
-Õâ¸ö°æ±¾ÒıÈëÁËÒ»¸öĞÂµÄÈ¨ÏŞÄ£ĞÍ,ÓÃ»§ÏÖÔÚ¿ÉÒÔÔÚÔËĞĞÊ±Ö±½Ó¹ÜÀíÓ¦ÓÃ³ÌĞòµÄÈ¨ÏŞ¡£Õâ¸öÄ£ĞÍÌá¹©ÁË¸Ä½øµÄ¿É¼ûĞÔºÍ¿ØÖÆÓÃ»§È¨ÏŞ,Í¬Ê±¼ò»¯°²×°ºÍ×Ô¶¯Éı¼¶¹ı³Ì¶ÔÓÚÓ¦ÓÃ³ÌĞò¿ª·¢ÈËÔ±¡£ÓÃ»§¿ÉÒÔÊÚÓè»ò³·ÏúÈ¨ÏŞµ¥¶À°²×°µÄÓ¦ÓÃ³ÌĞò¡£
+è¿™ä¸ªç‰ˆæœ¬å¼•å…¥äº†ä¸€ä¸ªæ–°çš„æƒé™æ¨¡å‹,ç”¨æˆ·ç°åœ¨å¯ä»¥åœ¨è¿è¡Œæ—¶ç›´æ¥ç®¡ç†åº”ç”¨ç¨‹åºçš„æƒé™ã€‚è¿™ä¸ªæ¨¡å‹æä¾›äº†æ”¹è¿›çš„å¯è§æ€§å’Œæ§åˆ¶ç”¨æˆ·æƒé™,åŒæ—¶ç®€åŒ–å®‰è£…å’Œè‡ªåŠ¨å‡çº§è¿‡ç¨‹å¯¹äºåº”ç”¨ç¨‹åºå¼€å‘äººå‘˜ã€‚ç”¨æˆ·å¯ä»¥æˆäºˆæˆ–æ’¤é”€æƒé™å•ç‹¬å®‰è£…çš„åº”ç”¨ç¨‹åºã€‚
 On your apps that target Android 6.0 (API level 23) or higher, make sure to check for and request permissions at runtime. To determine if your app has been granted a permission, call the new checkSelfPermission() method. To request a permission, call the new requestPermissions() method. Even if your app is not targeting Android 6.0 (API level 23), you should test your app under the new permissions model.
-ÔÚÄãµÄÓ¦ÓÃ³ÌĞòµÄÄ¿±êAndroid 6.0(API¼¶±ğ23)»ò¸ü¸ß,È·±£ÔÚÔËĞĞÊ±¼ì²éºÍÇëÇóÈ¨ÏŞ¡£À´È·¶¨Ó¦ÓÃ³ÌĞòÒÑ¾­±»ÊÚÓèÈ¨ÏŞ,µ÷ÓÃĞÂµÄcheckSelfPermission()·½·¨¡£ÇëÇóÈ¨ÏŞ,µ÷ÓÃĞÂµÄrequestPermissions()·½·¨¡£¼´Ê¹ÄãµÄÓ¦ÓÃ³ÌĞò²¢²»ÊÇÕë¶ÔAndroid 6.0(API¼¶±ğ23),ÄãÓ¦¸Ã²âÊÔÄãµÄÓ¦ÓÃÔÚĞÂµÄÈ¨ÏŞÄ£ĞÍ¡£
+åœ¨ä½ çš„åº”ç”¨ç¨‹åºçš„ç›®æ ‡Android 6.0(APIçº§åˆ«23)æˆ–æ›´é«˜,ç¡®ä¿åœ¨è¿è¡Œæ—¶æ£€æŸ¥å’Œè¯·æ±‚æƒé™ã€‚æ¥ç¡®å®šåº”ç”¨ç¨‹åºå·²ç»è¢«æˆäºˆæƒé™,è°ƒç”¨æ–°çš„checkSelfPermission()æ–¹æ³•ã€‚è¯·æ±‚æƒé™,è°ƒç”¨æ–°çš„requestPermissions()æ–¹æ³•ã€‚å³ä½¿ä½ çš„åº”ç”¨ç¨‹åºå¹¶ä¸æ˜¯é’ˆå¯¹Android 6.0(APIçº§åˆ«23),ä½ åº”è¯¥æµ‹è¯•ä½ çš„åº”ç”¨åœ¨æ–°çš„æƒé™æ¨¡å‹ã€‚
 For details on supporting the new permissions model in your app, see Working with System Permissions. For tips on how to assess the impact on your app, see Permissions Best Practices.
-ÓĞ¹ØÖ§³ÖĞÂµÄÈ¨ÏŞÄ£ĞÍÔÚÄãµÄÓ¦ÓÃ³ÌĞò,Ê¹ÓÃÏµÍ³È¨ÏŞ¡£¶ÔÈçºÎÆÀ¹À¶ÔÓ¦ÓÃ³ÌĞòµÄÓ°Ïì,¿´µ½È¨ÏŞ×î¼ÑÊµ¼ù¡£
-Doze and App Standbyî§Ë¯ºÍÓ¦ÓÃ±¸ÓÃ
+æœ‰å…³æ”¯æŒæ–°çš„æƒé™æ¨¡å‹åœ¨ä½ çš„åº”ç”¨ç¨‹åº,ä½¿ç”¨ç³»ç»Ÿæƒé™ã€‚å¯¹å¦‚ä½•è¯„ä¼°å¯¹åº”ç”¨ç¨‹åºçš„å½±å“,çœ‹åˆ°æƒé™æœ€ä½³å®è·µã€‚
+Doze and App StandbyçŒç¡å’Œåº”ç”¨å¤‡ç”¨
 This release introduces new power-saving optimizations for idle devices and apps. These features affect all apps so make sure to test your apps in these new modes.
-Õâ¸ö°æ±¾ÒıÈëÁËĞÂµÄ½ÚÄÜÓÅ»¯ÏĞÖÃÉè±¸ºÍÓ¦ÓÃ³ÌĞò¡£ÕâĞ©ÌØĞÔÓ°ÏìËùÓĞÓ¦ÓÃ³ÌĞòÈ·±£²âÊÔÄúµÄÓ¦ÓÃ³ÌĞòÔÚÕâĞ©ĞÂÄ£Ê½¡£
+è¿™ä¸ªç‰ˆæœ¬å¼•å…¥äº†æ–°çš„èŠ‚èƒ½ä¼˜åŒ–é—²ç½®è®¾å¤‡å’Œåº”ç”¨ç¨‹åºã€‚è¿™äº›ç‰¹æ€§å½±å“æ‰€æœ‰åº”ç”¨ç¨‹åºç¡®ä¿æµ‹è¯•æ‚¨çš„åº”ç”¨ç¨‹åºåœ¨è¿™äº›æ–°æ¨¡å¼ã€‚
 Doze: If a user unplugs a device and leaves it stationary, with its screen off, for a period of time, the device goes into Doze mode, where it attempts to keep the system in a sleep state. In this mode, devices periodically resume normal operations for brief periods of time so that app syncing can occur and the system can perform any pending operations.
-´òî§Ë¯:Èç¹ûÓÃ»§°ÎµôÉè±¸ºÍÊ÷Ò¶Ëü¾²Ö¹²»¶¯µÄ,ÓëËüµÄÆÁÄ»,ÔÚÒ»¶ÎÊ±¼äÄÚ,¸ÃÉè±¸½øÈëî§Ë¯Ä£Ê½,ËüÊÔÍ¼±£³ÖÏµÍ³´¦ÓÚË¯Ãß×´Ì¬¡£ÔÚÕâÖÖÄ£Ê½ÏÂ,Éè±¸ÖÜÆÚĞÔµØ¶ÌÔİ»Ö¸´Õı³£²Ù×÷µÄÊ±¼ä,ÒÔ±ãÓ¦ÓÃ³ÌĞòÍ¬²½·¢Éú,ÏµÍ³¿ÉÒÔÖ´ĞĞÈÎºÎĞü¶øÎ´¾öµÄ²Ù×÷¡£
+æ‰“çŒç¡:å¦‚æœç”¨æˆ·æ‹”æ‰è®¾å¤‡å’Œæ ‘å¶å®ƒé™æ­¢ä¸åŠ¨çš„,ä¸å®ƒçš„å±å¹•,åœ¨ä¸€æ®µæ—¶é—´å†…,è¯¥è®¾å¤‡è¿›å…¥çŒç¡æ¨¡å¼,å®ƒè¯•å›¾ä¿æŒç³»ç»Ÿå¤„äºç¡çœ çŠ¶æ€ã€‚åœ¨è¿™ç§æ¨¡å¼ä¸‹,è®¾å¤‡å‘¨æœŸæ€§åœ°çŸ­æš‚æ¢å¤æ­£å¸¸æ“ä½œçš„æ—¶é—´,ä»¥ä¾¿åº”ç”¨ç¨‹åºåŒæ­¥å‘ç”Ÿ,ç³»ç»Ÿå¯ä»¥æ‰§è¡Œä»»ä½•æ‚¬è€Œæœªå†³çš„æ“ä½œã€‚
 App Standby: App Standby allows the system to determine that an app is idle when the user is not actively using it. The system makes this determination when the user does not touch the app for a certain period of time. If the device is unplugged, the system disables network access and suspends syncs and jobs for the apps it deems idle.
-Ó¦ÓÃ±¸ÓÃ:Ó¦ÓÃ±¸ÓÃÔÊĞíÏµÍ³È·¶¨Ó¦ÓÃ³ÌĞò¿ÕÏĞµ±ÓÃ»§²»»ı¼«Ê¹ÓÃËü¡£ÏµÍ³Ê¹ÕâÒ»¾öĞÄµ±ÓÃ»§²»½Ó´¥Ò»¶ÎÊ±¼äµÄÓ¦ÓÃ¡£Èç¹ûÉè±¸²»²åµç,ÏµÍ³½ûÓÃÍøÂç·ÃÎÊºÍÔİÍ£Í¬²½Ó¦ÓÃ³ÌĞòÈÏÎª¿ÕÏĞºÍ¹¤×÷¡£
+åº”ç”¨å¤‡ç”¨:åº”ç”¨å¤‡ç”¨å…è®¸ç³»ç»Ÿç¡®å®šåº”ç”¨ç¨‹åºç©ºé—²å½“ç”¨æˆ·ä¸ç§¯æä½¿ç”¨å®ƒã€‚ç³»ç»Ÿä½¿è¿™ä¸€å†³å¿ƒå½“ç”¨æˆ·ä¸æ¥è§¦ä¸€æ®µæ—¶é—´çš„åº”ç”¨ã€‚å¦‚æœè®¾å¤‡ä¸æ’ç”µ,ç³»ç»Ÿç¦ç”¨ç½‘ç»œè®¿é—®å’Œæš‚åœåŒæ­¥åº”ç”¨ç¨‹åºè®¤ä¸ºç©ºé—²å’Œå·¥ä½œã€‚
 To learn more about these power-saving changes, see Optimizing for Doze and App Standby.
-ÁË½â¸ü¶à¹ØÓÚÕâĞ©Ê¡µçµÄ±ä»¯,¿´µ½´òî§Ë¯µÄÓÅ»¯ºÍÓ¦ÓÃ±¸ÓÃ¡£
+äº†è§£æ›´å¤šå…³äºè¿™äº›çœç”µçš„å˜åŒ–,çœ‹åˆ°æ‰“çŒç¡çš„ä¼˜åŒ–å’Œåº”ç”¨å¤‡ç”¨ã€‚
 Apache HTTP Client Removal
-Apache HTTP¿Í»§¶ËÉ¾³ı
+Apache HTTPå®¢æˆ·ç«¯åˆ é™¤
 Android 6.0 release removes support for the Apache HTTP client. If your app is using this client and targets Android 2.3 (API level 9) or higher, use the HttpURLConnection class instead. This API is more efficient because it reduces network use through transparent compression and response caching, and minimizes power consumption. To continue using the Apache HTTP APIs, you must first declare the following compile-time dependency in your build.gradle file:
-Android 6.0°æ±¾½«Ö§³ÖApache HTTP¿Í»§¶Ë¡£Èç¹ûÄãµÄÓ¦ÓÃ³ÌĞòÊ¹ÓÃ´Ë¿Í»§¶ËºÍÄ¿±êAndroid 2.3(API¼¶±ğ9)»ò¸ü¸ß,Ê¹ÓÃHttpURLConnectionÀà¡£Õâ¸öAPIÊÇ¸üÓĞĞ§µÄ,ÒòÎªËüÍ¨¹ıÍ¸Ã÷µÄÑ¹ËõºÍÏìÓ¦»º´æ,¼õÉÙÍøÂçÊ¹ÓÃºÍ¼õÉÙÄÜºÄ¡£¼ÌĞøÊ¹ÓÃApache HTTP api,Äã±ØĞëÊ×ÏÈÉùÃ÷ÒÔÏÂ±àÒëÊ±ÒÀÀµÏî¡£gradleÎÄ¼ş:
+Android 6.0ç‰ˆæœ¬å°†æ”¯æŒApache HTTPå®¢æˆ·ç«¯ã€‚å¦‚æœä½ çš„åº”ç”¨ç¨‹åºä½¿ç”¨æ­¤å®¢æˆ·ç«¯å’Œç›®æ ‡Android 2.3(APIçº§åˆ«9)æˆ–æ›´é«˜,ä½¿ç”¨HttpURLConnectionç±»ã€‚è¿™ä¸ªAPIæ˜¯æ›´æœ‰æ•ˆçš„,å› ä¸ºå®ƒé€šè¿‡é€æ˜çš„å‹ç¼©å’Œå“åº”ç¼“å­˜,å‡å°‘ç½‘ç»œä½¿ç”¨å’Œå‡å°‘èƒ½è€—ã€‚ç»§ç»­ä½¿ç”¨Apache HTTP api,ä½ å¿…é¡»é¦–å…ˆå£°æ˜ä»¥ä¸‹ç¼–è¯‘æ—¶ä¾èµ–é¡¹ã€‚gradleæ–‡ä»¶:
 android {
     useLibrary 'org.apache.http.legacy'
 }
 BoringSSL
-Android is moving away from OpenSSL to the BoringSSL library. If you¡¯re using the Android NDK in your app, don't link against cryptographic libraries that are not a part of the NDK API, such as libcrypto.so and libssl.so. These libraries are not public APIs, and may change or break without notice across releases and devices. In addition, you may expose yourself to security vulnerabilities. Instead, modify your native code to call the Java cryptography APIs via JNI or to statically link against a cryptography library of your choice.
-AndroidÊÇBoringSSLÔ¶ÀëOpenSSL¿â¡£Èç¹ûÄãÔÚÄãµÄÓ¦ÓÃ³ÌĞò,Ê¹ÓÃAndroid NDK¶Ô¼ÓÃÜ¿â²»ÊÇ²»ÁªÏµNDK APIµÄÒ»²¿·Ö,±ÈÈçlibcrypto¡£ËùÒÔ,libssl.so¡£ÕâĞ©¿â²»ÊÇ¹«¹²api,²¢¿ÉÄÜ¸Ä±ä»ò´òÆÆ¿ç°æ±¾ºÍÉè±¸²»ÁíĞĞÍ¨Öª¡£´ËÍâ,Äã¿ÉÄÜ»á±©Â¶×Ô¼ºµÄ°²È«Â©¶´¡£Ïà·´,ĞŞ¸ÄÄúµÄ±¾»ú´úÂëµ÷ÓÃJava¼ÓÃÜapiÍ¨¹ıJNI»ò¾²Ì¬Á´½Ó¶ÔÄúÑ¡ÔñµÄÃÜÂë¿â¡£
+Android is moving away from OpenSSL to the BoringSSL library. If youâ€™re using the Android NDK in your app, don't link against cryptographic libraries that are not a part of the NDK API, such as libcrypto.so and libssl.so. These libraries are not public APIs, and may change or break without notice across releases and devices. In addition, you may expose yourself to security vulnerabilities. Instead, modify your native code to call the Java cryptography APIs via JNI or to statically link against a cryptography library of your choice.
+Androidæ˜¯BoringSSLè¿œç¦»OpenSSLåº“ã€‚å¦‚æœä½ åœ¨ä½ çš„åº”ç”¨ç¨‹åº,ä½¿ç”¨Android NDKå¯¹åŠ å¯†åº“ä¸æ˜¯ä¸è”ç³»NDK APIçš„ä¸€éƒ¨åˆ†,æ¯”å¦‚libcryptoã€‚æ‰€ä»¥,libssl.soã€‚è¿™äº›åº“ä¸æ˜¯å…¬å…±api,å¹¶å¯èƒ½æ”¹å˜æˆ–æ‰“ç ´è·¨ç‰ˆæœ¬å’Œè®¾å¤‡ä¸å¦è¡Œé€šçŸ¥ã€‚æ­¤å¤–,ä½ å¯èƒ½ä¼šæš´éœ²è‡ªå·±çš„å®‰å…¨æ¼æ´ã€‚ç›¸å,ä¿®æ”¹æ‚¨çš„æœ¬æœºä»£ç è°ƒç”¨JavaåŠ å¯†apié€šè¿‡JNIæˆ–é™æ€é“¾æ¥å¯¹æ‚¨é€‰æ‹©çš„å¯†ç åº“ã€‚
 Access to Hardware Identifier
-·ÃÎÊÓ²¼ş±êÊ¶·û
-To provide users with greater data protection, starting in this release, Android removes programmatic access to the device¡¯s local hardware identifier for apps using the Wi-Fi and Bluetooth APIs. The WifiInfo.getMacAddress() and the BluetoothAdapter.getAddress() methods now return a constant value of 02:00:00:00:00:00.
-ÎªÓÃ»§Ìá¹©¸ü´óµÄÊı¾İ±£»¤,¿ªÊ¼ÔÚ±¾°æ±¾ÖĞ,Android½«±à³Ì·ÃÎÊÉè±¸µÄ±¾µØÓ²¼ş±êÊ¶·ûÊ¹ÓÃwi - fiºÍÀ¶ÑÀapiµÄÓ¦ÓÃ³ÌĞò¡£BluetoothAdapter.getAddress WifiInfo.getMacAddress()ºÍ()·½·¨·µ»Ø02:00:00:00:00:00ºã¶¨Öµ¡£
+è®¿é—®ç¡¬ä»¶æ ‡è¯†ç¬¦
+To provide users with greater data protection, starting in this release, Android removes programmatic access to the deviceâ€™s local hardware identifier for apps using the Wi-Fi and Bluetooth APIs. The WifiInfo.getMacAddress() and the BluetoothAdapter.getAddress() methods now return a constant value of 02:00:00:00:00:00.
+ä¸ºç”¨æˆ·æä¾›æ›´å¤§çš„æ•°æ®ä¿æŠ¤,å¼€å§‹åœ¨æœ¬ç‰ˆæœ¬ä¸­,Androidå°†ç¼–ç¨‹è®¿é—®è®¾å¤‡çš„æœ¬åœ°ç¡¬ä»¶æ ‡è¯†ç¬¦ä½¿ç”¨wi - fiå’Œè“ç‰™apiçš„åº”ç”¨ç¨‹åºã€‚BluetoothAdapter.getAddress WifiInfo.getMacAddress()å’Œ()æ–¹æ³•è¿”å›02:00:00:00:00:00æ’å®šå€¼ã€‚
 To access the hardware identifiers of nearby external devices via Bluetooth and Wi-Fi scans, your app must now have the ACCESS_FINE_LOCATION or ACCESS_COARSE_LOCATION permissions:
-·ÃÎÊÓ²¼ş±êÊ¶·û¸½½üµÄÍâ²¿Éè±¸Í¨¹ıÀ¶ÑÀºÍÎŞÏßÍøÂçÉ¨Ãè,Ó¦ÓÃ³ÌĞò±ØĞëÏÖÔÚACCESS_FINE_LOCATION»òÕßACCESS_COARSE_LOCATIONÈ¨ÏŞ:
+è®¿é—®ç¡¬ä»¶æ ‡è¯†ç¬¦é™„è¿‘çš„å¤–éƒ¨è®¾å¤‡é€šè¿‡è“ç‰™å’Œæ— çº¿ç½‘ç»œæ‰«æ,åº”ç”¨ç¨‹åºå¿…é¡»ç°åœ¨ACCESS_FINE_LOCATIONæˆ–è€…ACCESS_COARSE_LOCATIONæƒé™:
 WifiManager.getScanResults()
 BluetoothDevice.ACTION_FOUND
 BluetoothLeScanner.startScan()
 Note: When a device running Android 6.0 (API level 23) initiates a background Wi-Fi or Bluetooth scan, the operation is visible to external devices as originating from a randomized MAC address.
-×¢Òâ:µ±Éè±¸ÔËĞĞAndroid 6.0(API¼¶±ğ23)·¢ÆğÒ»¸ö±³¾°wi - fi»òÀ¶ÑÀÉ¨Ãè,²Ù×÷ÊÇ¿É¼ûµÄÍâ²¿Éè±¸,À´×ÔÒ»¸öËæ»úµÄMACµØÖ·¡£
+æ³¨æ„:å½“è®¾å¤‡è¿è¡ŒAndroid 6.0(APIçº§åˆ«23)å‘èµ·ä¸€ä¸ªèƒŒæ™¯wi - fiæˆ–è“ç‰™æ‰«æ,æ“ä½œæ˜¯å¯è§çš„å¤–éƒ¨è®¾å¤‡,æ¥è‡ªä¸€ä¸ªéšæœºçš„MACåœ°å€ã€‚
 Notifications
 This release removes the Notification.setLatestEventInfo() method. Use the Notification.Builder class instead to construct notifications. To update a notification repeatedly, reuse the Notification.Builder instance. Call the build() method to get updated Notification instances.
-Õâ¸ö°æ±¾É¾³ıNotification.setLatestEventInfo()·½·¨¡£Ê¹ÓÃÍ¨Öª¡£¹¹½¨Æ÷ÀàÀ´¹¹½¨Í¨Öª¡£·´¸´¸üĞÂÍ¨Öª,Í¨ÖªÖØÓÃ¡£¹¹½¨Æ÷ÊµÀı¡£µ÷ÓÃbuild()·½·¨À´»ñÈ¡¸üĞÂÍ¨ÖªÊµÀı¡£
+è¿™ä¸ªç‰ˆæœ¬åˆ é™¤Notification.setLatestEventInfo()æ–¹æ³•ã€‚ä½¿ç”¨é€šçŸ¥ã€‚æ„å»ºå™¨ç±»æ¥æ„å»ºé€šçŸ¥ã€‚åå¤æ›´æ–°é€šçŸ¥,é€šçŸ¥é‡ç”¨ã€‚æ„å»ºå™¨å®ä¾‹ã€‚è°ƒç”¨build()æ–¹æ³•æ¥è·å–æ›´æ–°é€šçŸ¥å®ä¾‹ã€‚
 The adb shell dumpsys notification command no longer prints out your notification text. Use the adb shell dumpsys notification --noredact command instead to print out the text in a notification object.
-ÑÇĞĞ¿ÇdumpsysÍ¨ÖªÃüÁî²»ÔÙ´òÓ¡³öÄãµÄÍ¨ÖªÎÄ±¾¡£Ê¹ÓÃÑÇĞĞ¿ÇdumpsysÍ¨Öª¡ª¡ªnoredactÃüÁî¶ø²»ÊÇ´òÓ¡µÄÎÄ±¾Í¨Öª¶ÔÏó¡£
+äºšè¡Œå£³dumpsysé€šçŸ¥å‘½ä»¤ä¸å†æ‰“å°å‡ºä½ çš„é€šçŸ¥æ–‡æœ¬ã€‚ä½¿ç”¨äºšè¡Œå£³dumpsysé€šçŸ¥â€”â€”noredactå‘½ä»¤è€Œä¸æ˜¯æ‰“å°çš„æ–‡æœ¬é€šçŸ¥å¯¹è±¡ã€‚
 AudioManager Changes
 Setting the volume directly or muting specific streams via the AudioManager class is no longer supported. The setStreamSolo() method is deprecated, and you should call the requestAudioFocus() method instead. Similarly, the setStreamMute() method is deprecated; instead, call the adjustStreamVolume() method and pass in the direction value ADJUST_MUTE or ADJUST_UNMUTE.
-ÉèÖÃÒôÁ¿Ö±½Ó»òÍ¨¹ıAudioManager¾²ÒôÌØ¶¨Á÷ÀàÊÇ²»ÔÙÖ§³Ö¡£setStreamSolo()·½·¨ÊÇÆúÓÃ,ÄãÓ¦¸Ã½ĞrequestAudioFocus()·½·¨¡£Í¬Ñù,setStreamMute()·½·¨ÊÇÆúÓÃ;Ïà·´,³ÆÎªadjustStreamVolume()·½·¨²¢´«µİ¼ÛÖµADJUST_MUTE»òÕßADJUST_UNMUTEµÄ·½Ïò¡£
+è®¾ç½®éŸ³é‡ç›´æ¥æˆ–é€šè¿‡AudioManageré™éŸ³ç‰¹å®šæµç±»æ˜¯ä¸å†æ”¯æŒã€‚setStreamSolo()æ–¹æ³•æ˜¯å¼ƒç”¨,ä½ åº”è¯¥å«requestAudioFocus()æ–¹æ³•ã€‚åŒæ ·,setStreamMute()æ–¹æ³•æ˜¯å¼ƒç”¨;ç›¸å,ç§°ä¸ºadjustStreamVolume()æ–¹æ³•å¹¶ä¼ é€’ä»·å€¼ADJUST_MUTEæˆ–è€…ADJUST_UNMUTEçš„æ–¹å‘ã€‚
 Text Selection
 
 When users select text in your app, you can now display text selection actions such as Cut, Copy, and Paste in a floating toolbar. The user interaction implementation is similar to that for the contextual action bar, as described in Enabling the contextual action mode for individual views.
-µ±ÓÃ»§Ñ¡ÔñÎÄ±¾ÔÚÄãµÄÓ¦ÓÃ³ÌĞò,ÏÖÔÚÄú¿ÉÒÔÏÔÊ¾ÎÄ±¾Ñ¡ÔñĞĞÎª,Èç¼ôÇĞ¡¢¸´ÖÆºÍÕ³ÌùÔÚÒ»¸ö¸¡¶¯¹¤¾ßÀ¸¡£ÓÃ»§½»»¥ÊµÏÖÀàËÆÓÚÉÏÏÂÎÄ²Ù×÷À¸,Ê¹ËùÊöÉÏÏÂÎÄ¶¯×÷Ä£Ê½Îª¸öÈË¹Ûµã¡£
+å½“ç”¨æˆ·é€‰æ‹©æ–‡æœ¬åœ¨ä½ çš„åº”ç”¨ç¨‹åº,ç°åœ¨æ‚¨å¯ä»¥æ˜¾ç¤ºæ–‡æœ¬é€‰æ‹©è¡Œä¸º,å¦‚å‰ªåˆ‡ã€å¤åˆ¶å’Œç²˜è´´åœ¨ä¸€ä¸ªæµ®åŠ¨å·¥å…·æ ã€‚ç”¨æˆ·äº¤äº’å®ç°ç±»ä¼¼äºä¸Šä¸‹æ–‡æ“ä½œæ ,ä½¿æ‰€è¿°ä¸Šä¸‹æ–‡åŠ¨ä½œæ¨¡å¼ä¸ºä¸ªäººè§‚ç‚¹ã€‚
 To implement a floating toolbar for text selection, make the following changes in your existing apps:
-ÊµÏÖ¸¡¶¯¹¤¾ßÀ¸µÄÎÄ±¾Ñ¡Ôñ,ÔÚÄãÏÖÓĞµÄÓ¦ÓÃ³ÌĞò×öÒÔÏÂ¸ü¸Ä:
+å®ç°æµ®åŠ¨å·¥å…·æ çš„æ–‡æœ¬é€‰æ‹©,åœ¨ä½ ç°æœ‰çš„åº”ç”¨ç¨‹åºåšä»¥ä¸‹æ›´æ”¹:
 In your View or Activity object, change your ActionMode calls from startActionMode(Callback) to startActionMode(Callback, ActionMode.TYPE_FLOATING).
 Take your existing implementation of ActionMode.Callback and make it extend ActionMode.Callback2 instead.
 Override the onGetContentRect() method to provide the coordinates of the content Rect object (such as a text selection rectangle) in the view.
 If the rectangle positioning is no longer valid, and this is the only element to be invalidated, call the invalidateContentRect() method.
 If you are using Android Support Library revision 22.2, be aware that floating toolbars are not backward-compatible and appcompat takes control over ActionMode objects by default. This prevents floating toolbars from being displayed. To enable ActionMode support in an AppCompatActivity, call getDelegate(), then call setHandleNativeActionModesEnabled() on the returned AppCompatDelegate object and set the input parameter to false. This call returns control of ActionMode objects to the framework. In devices running Android 6.0 (API level 23), that allows the framework to support ActionBar or floating toolbar modes, while on devices running Android 5.1 (API level 22) or lower, only the ActionBar modes are supported.
-ÔÚÄãµÄÊÓÍ¼»ò»î¶¯¶ÔÏó,¸Ä±äÄãActionMode startActionMode´òÀ´(»Øµ÷)startActionMode(»Øµ÷,ActionMode.TYPE_FLOATING)¡£
-°ÑÄãÏÖÓĞµÄActionModeµÄÊµÏÖ¡£»Øµ÷,ÈÃËüÑÓ³¤ActionMode¡£Callback2´úÌæ¡£
-¸²¸ÇonGetContentRect()·½·¨Ìá¹©µÄ×ø±êÄÚÈİ¾ØĞÎ¶ÔÏó(ÈçÎÄ±¾Ñ¡Ôñ¾ØĞÎ)µÄ¹Ûµã¡£
-Èç¹û¾ØĞÎ¶¨Î»²»ÔÙÊÇÓĞĞ§µÄ,ÕâÊÇÎ¨Ò»µÄÔªËØÊ§Ğ§,³ÆÖ®ÎªinvalidateContentRect()·½·¨¡£
-Èç¹ûÄúÊ¹ÓÃµÄÊÇAndroidÖ§³Ö¿â°æ±¾22.2,Çë×¢Òâ,¸¡¶¯¹¤¾ßÀ¸²»Ïòºó¼æÈİºÍappcompatĞèÒª¿ØÖÆActionModeÄ¬ÈÏ¶ÔÏó¡£Õâ¿ÉÒÔ·ÀÖ¹¸¡¶¯¹¤¾ßÀ¸ÏÔÊ¾¡£ÒÔAppCompatActivityÆôÓÃActionModeÖ§³Ö,½ĞgetDelegate(),È»ºóµ÷ÓÃsetHandleNativeActionModesEnabled()·µ»ØµÄAppCompatDelegate¶ÔÏóºÍÊäÈë²ÎÊıÉèÖÃÎªfalse¡£Õâ¸öµ÷ÓÃ·µ»Ø¿ØÖÆActionMode¶ÔÏóµÄ¿ò¼Ü¡£ÔÚÉè±¸ÔËĞĞAndroid 6.0(API¼¶±ğ23),ÔÊĞí¿ò¼ÜÖ§³ÖActionBar»ò¸¡¶¯¹¤¾ßÀ¸Ä£Ê½,ÔÚÉè±¸ÉÏÔËĞĞAndroid 5.1(API¼¶±ğ22)»ò¸üµÍ,Ö»ÓĞActionBarÄ£Ê½Ö§³Ö¡£
+åœ¨ä½ çš„è§†å›¾æˆ–æ´»åŠ¨å¯¹è±¡,æ”¹å˜ä½ ActionMode startActionModeæ‰“æ¥(å›è°ƒ)startActionMode(å›è°ƒ,ActionMode.TYPE_FLOATING)ã€‚
+æŠŠä½ ç°æœ‰çš„ActionModeçš„å®ç°ã€‚å›è°ƒ,è®©å®ƒå»¶é•¿ActionModeã€‚Callback2ä»£æ›¿ã€‚
+è¦†ç›–onGetContentRect()æ–¹æ³•æä¾›çš„åæ ‡å†…å®¹çŸ©å½¢å¯¹è±¡(å¦‚æ–‡æœ¬é€‰æ‹©çŸ©å½¢)çš„è§‚ç‚¹ã€‚
+å¦‚æœçŸ©å½¢å®šä½ä¸å†æ˜¯æœ‰æ•ˆçš„,è¿™æ˜¯å”¯ä¸€çš„å…ƒç´ å¤±æ•ˆ,ç§°ä¹‹ä¸ºinvalidateContentRect()æ–¹æ³•ã€‚
+å¦‚æœæ‚¨ä½¿ç”¨çš„æ˜¯Androidæ”¯æŒåº“ç‰ˆæœ¬22.2,è¯·æ³¨æ„,æµ®åŠ¨å·¥å…·æ ä¸å‘åå…¼å®¹å’Œappcompatéœ€è¦æ§åˆ¶ActionModeé»˜è®¤å¯¹è±¡ã€‚è¿™å¯ä»¥é˜²æ­¢æµ®åŠ¨å·¥å…·æ æ˜¾ç¤ºã€‚ä»¥AppCompatActivityå¯ç”¨ActionModeæ”¯æŒ,å«getDelegate(),ç„¶åè°ƒç”¨setHandleNativeActionModesEnabled()è¿”å›çš„AppCompatDelegateå¯¹è±¡å’Œè¾“å…¥å‚æ•°è®¾ç½®ä¸ºfalseã€‚è¿™ä¸ªè°ƒç”¨è¿”å›æ§åˆ¶ActionModeå¯¹è±¡çš„æ¡†æ¶ã€‚åœ¨è®¾å¤‡è¿è¡ŒAndroid 6.0(APIçº§åˆ«23),å…è®¸æ¡†æ¶æ”¯æŒActionBaræˆ–æµ®åŠ¨å·¥å…·æ æ¨¡å¼,åœ¨è®¾å¤‡ä¸Šè¿è¡ŒAndroid 5.1(APIçº§åˆ«22)æˆ–æ›´ä½,åªæœ‰ActionBaræ¨¡å¼æ”¯æŒã€‚
 Browser Bookmark Changes
 This release removes support for global bookmarks. The android.provider.Browser.getAllBookmarks() and android.provider.Browser.saveBookmark() methods are now removed. Likewise, the READ_HISTORY_BOOKMARKS and WRITE_HISTORY_BOOKMARKS permissions are removed. If your app targets Android 6.0 (API level 23) or higher, don't access bookmarks from the global provider or use the bookmark permissions. Instead, your app should store bookmarks data internally.
-Õâ¸ö°æ±¾½«Ö§³ÖÈ«ÇòÊéÇ©¡£android.provider.Browser.getAllBookmarks()ºÍandroid.provider.Browser.saveBookmark()·½·¨ÏÖÔÚÒÆ³ı¡£Í¬Ñù,READ_HISTORY_BOOKMARKS,WRITE_HISTORY_BOOKMARKSÈ¨ÏŞÉ¾³ı¡£Èç¹ûÄãµÄÓ¦ÓÃÄ¿±êAndroid 6.0(API¼¶±ğ23)»ò¸ü¸ß,²»´ÓÈ«Çò¹©Ó¦ÉÌ·ÃÎÊÊéÇ©ÊéÇ©»òÊ¹ÓÃÈ¨ÏŞ¡£Ïà·´,Ó¦ÓÃ³ÌĞòÓ¦¸ÃÔÚÄÚ²¿´æ´¢ÊéÇ©Êı¾İ¡£
+è¿™ä¸ªç‰ˆæœ¬å°†æ”¯æŒå…¨çƒä¹¦ç­¾ã€‚android.provider.Browser.getAllBookmarks()å’Œandroid.provider.Browser.saveBookmark()æ–¹æ³•ç°åœ¨ç§»é™¤ã€‚åŒæ ·,READ_HISTORY_BOOKMARKS,WRITE_HISTORY_BOOKMARKSæƒé™åˆ é™¤ã€‚å¦‚æœä½ çš„åº”ç”¨ç›®æ ‡Android 6.0(APIçº§åˆ«23)æˆ–æ›´é«˜,ä¸ä»å…¨çƒä¾›åº”å•†è®¿é—®ä¹¦ç­¾ä¹¦ç­¾æˆ–ä½¿ç”¨æƒé™ã€‚ç›¸å,åº”ç”¨ç¨‹åºåº”è¯¥åœ¨å†…éƒ¨å­˜å‚¨ä¹¦ç­¾æ•°æ®ã€‚
 Android Keystore Changes
 With this release, the Android Keystore provider no longer supports DSA. ECDSA is still supported.
-ÓĞÁËÕâ¸ö°æ±¾,°²×¿²»ÔÙÖ§³ÖDSAÃÜÔ¿¿âÌá¹©Õß¡£ECDSAÈÔÖ§³Ö¡£
+æœ‰äº†è¿™ä¸ªç‰ˆæœ¬,å®‰å“ä¸å†æ”¯æŒDSAå¯†é’¥åº“æä¾›è€…ã€‚ECDSAä»æ”¯æŒã€‚
 Keys which do not require encryption at rest will no longer be deleted when secure lock screen is disabled or reset (for example, by the user or a Device Administrator). Keys which require encryption at rest will be deleted during these events.
-¼ü,²»ĞèÒª¼ÓÃÜ¾²Ö¹²»ÔÙ½ûÓÃ°²È«Ëø¶¨ÆÁÄ»»òÖØÖÃÊ±É¾³ı(ÀıÈç,ÓÉÓÃ»§»òÉè±¸¹ÜÀíÔ±)¡£Ô¿³×ĞèÒª¼ÓÃÜ¾²Ö¹ÔÚÕâĞ©ÊÂ¼ş½«±»É¾³ı¡£
+é”®,ä¸éœ€è¦åŠ å¯†é™æ­¢ä¸å†ç¦ç”¨å®‰å…¨é”å®šå±å¹•æˆ–é‡ç½®æ—¶åˆ é™¤(ä¾‹å¦‚,ç”±ç”¨æˆ·æˆ–è®¾å¤‡ç®¡ç†å‘˜)ã€‚é’¥åŒ™éœ€è¦åŠ å¯†é™æ­¢åœ¨è¿™äº›äº‹ä»¶å°†è¢«åˆ é™¤ã€‚
 Wi-Fi and Networking Changes
 This release introduces the following behavior changes to the Wi-Fi and networking APIs.
-Õâ¸ö°æ±¾ÒıÈëÁËÒÔÏÂĞĞÎª¸Ä±äÎŞÏßºÍÍøÂçapi¡£
+è¿™ä¸ªç‰ˆæœ¬å¼•å…¥äº†ä»¥ä¸‹è¡Œä¸ºæ”¹å˜æ— çº¿å’Œç½‘ç»œapiã€‚
 Your apps can now change the state of WifiConfiguration objects only if you created these objects. You are not permitted to modify or delete WifiConfiguration objects created by the user or by other apps.
-Previously, if an app forced the device to connect to a specific Wi-Fi network by using enableNetwork() with the disableAllOthers=true setting, the device disconnected from other networks such as cellular data. In This release, the device no longer disconnects from such other networks. If your app¡¯s targetSdkVersion is ¡°20¡± or lower, it is pinned to the selected Wi-Fi network. If your app¡¯s targetSdkVersion is ¡°21¡± or higher, use the multinetwork APIs (such as openConnection(), bindSocket(), and the new bindProcessToNetwork() method) to ensure that its network traffic is sent on the selected network.
+Previously, if an app forced the device to connect to a specific Wi-Fi network by using enableNetwork() with the disableAllOthers=true setting, the device disconnected from other networks such as cellular data. In This release, the device no longer disconnects from such other networks. If your appâ€™s targetSdkVersion is â€œ20â€ or lower, it is pinned to the selected Wi-Fi network. If your appâ€™s targetSdkVersion is â€œ21â€ or higher, use the multinetwork APIs (such as openConnection(), bindSocket(), and the new bindProcessToNetwork() method) to ensure that its network traffic is sent on the selected network.
 Camera Service Changes
-In This release, the model for accessing shared resources in the camera service has been changed from the previous ¡°first come, first serve¡± access model to an access model where high-priority processes are favored. Changes to the service behavior include:
-ÄúµÄÓ¦ÓÃ³ÌĞòÏÖÔÚ¿ÉÒÔ¸Ä±äWifiConfiguration¶ÔÏóµÄ×´Ì¬Ö»ÓĞÔÚÄú´´½¨ÕâĞ©¶ÔÏó¡£Äã²»ÔÊĞíĞŞ¸Ä»òÉ¾³ıWifiConfiguration¶ÔÏó´´½¨µÄÓÃ»§»òÆäËûÓ¦ÓÃ³ÌĞò¡£
-ÒÔÇ°,Èç¹ûÒ»¸öÓ¦ÓÃ³ÌĞòÆÈÊ¹Éè±¸Á¬½Óµ½Ò»¸öÌØ¶¨µÄwi - fiÍøÂçÍ¨¹ıÊ¹ÓÃenableNetworkÓëdisableAllOthers = true()ÉèÖÃ,Éè±¸ÓëÆäËûÖîÈç·äÎÑÊı¾İÍøÂç¡£ÔÚ±¾°æ±¾ÖĞ,Éè±¸²»ÔÙ´ÓÆäËûÍøÂç¶Ï¿ª¡£Èç¹ûÄãµÄÓ¦ÓÃµÄtargetSdkVersion¡°20¡±»ò¸üµÍ,ÕâÊÇ¹Ì¶¨ÔÚÑ¡¶¨µÄwi - fiÍøÂç¡£Èç¹ûÄãµÄÓ¦ÓÃµÄtargetSdkVersion¡°21¡±»ò¸ü¸ß,Ê¹ÓÃmultinetwork api(±ÈÈçopenConnection(),bindSocket(),ºÍĞÂbindProcessToNetwork()·½·¨),ÒÔÈ·±£ÆäÍøÂçÁ÷Á¿ËùÑ¡ÍøÂçÉÏ·¢ËÍ¡£
-Ïà»ú·şÎñ¸ü¸Ä
-ÔÚ±¾°æ±¾ÖĞ,¸ÃÄ£ĞÍÓÃÓÚ·ÃÎÊ¹²Ïí×ÊÔ´ÔÚÏà»ú·şÎñ¸Ä±äÁË´ÓÒÔÇ°µÄ¡°ÏÈÀ´ÏÈµÃ¡±·ÃÎÊÄ£ĞÍÒ»¸ö¸ßÓÅÏÈ¼¶½ø³ÌÖ§³ÖµÄ·ÃÎÊÄ£ĞÍ¡£¸ü¸Ä·şÎñĞĞÎª°üÀ¨:
-Access to camera subsystem resources, including opening and configuring a camera device, is awarded based on the ¡°priority¡± of the client application process. Application processes with user-visible or foreground activities are generally given a higher-priority, making camera resource acquisition and use more dependable.
-Active camera clients for lower priority apps may be ¡°evicted¡± when a higher priority application attempts to use the camera. In the deprecated Camera API, this results in onError() being called for the evicted client. In the Camera2 API, it results in onDisconnected() being called for the evicted client.
-On devices with appropriate camera hardware, separate application processes are able to independently open and use separate camera devices simultaneously. However, multi-process use cases, where simultaneous access causes significant degradation of performance or capabilities of any of the open camera devices, are now detected and disallowed by the camera service. This change may result in ¡°evictions¡± for lower priority clients even when no other app is directly attempting to access the same camera device.
-Changing the current user causes active camera clients in apps owned by the previous user account to be evicted. Access to the camera is limited to user profiles owned by the current device user. In practice, this means that a ¡°Guest¡± account, for example, will not be able to leave running processes that use the camera subsystem when the user has switched to a different account.
-½øÈëÏà»ú×ÓÏµÍ³×ÊÔ´,°üÀ¨´ò¿ªºÍÅäÖÃÒ»¸öÉãÏñÍ·Éè±¸,»ñµÃ»ùÓÚ¿Í»§¶ËÓ¦ÓÃ³ÌĞòµÄ¡°ÓÅÏÈ¼¶¡±µÄ¹ı³Ì¡£Ó¦ÓÃ³ÌĞò½ø³ÌºÍÓÃ»§¿É¼û»òÇ°Ì¨»î¶¯Í¨³£ÊÇ¸ø¶¨Ò»¸ö¸ßÓÅÏÈ¼¶,Ê¹Ïà»ú×ÊÔ´»ñÈ¡ºÍÊ¹ÓÃ¸ü¿É¿¿¡£
-»îÔ¾Ïà»ú¿Í»§µÍÓÅÏÈ¼¶µÄÓ¦ÓÃ¿ÉÄÜ»á¡°ÇıÖğ¡±µ±Ò»¸ö¸ü¸ßµÄÓÅÏÈ¼¶Ó¦ÓÃ³ÌĞòÊÔÍ¼Ê¹ÓÃÏà»ú¡£ÆúÓÃµÄÉãÏñÍ·API,Õâµ¼ÖÂonErrorÇıÖğ¿Í»§»ú()±»µ÷ÓÃ¡£ÔÚCamera2 API,Ëüµ¼ÖÂonDisconnectedÇıÖğ¿Í»§»ú()±»µ÷ÓÃ¡£
-ÓëºÏÊÊµÄÏà»úÓ²¼şÉè±¸ÉÏ,µ¥¶ÀµÄÓ¦ÓÃ³ÌĞò½ø³ÌÄÜ¹»¶ÀÁ¢¿ª·ÅºÍÍ¬Ê±Ê¹ÓÃ¶ÀÁ¢µÄÉãÏñÍ·Éè±¸¡£È»¶ø,¶à½ø³ÌµÄÓÃÀı,Í¬Ê±·ÃÎÊÔì³ÉÖØ´ó½µ½âĞÔÄÜ»ò¹¦ÄÜµÄ´ò¿ªÉãÏñÍ·Éè±¸,ÏÖÔÚÏà»ú·şÎñ·¢ÏÖºÍ²»ÔÊĞíµÄ¡£ÕâÖÖ±ä»¯¿ÉÄÜµ¼ÖÂ¡°ÇıÖğ¡±ÎªµÍÓÅÏÈ¼¶µÄ¿Í»§,¼´Ê¹ÔÚÃ»ÓĞÆäËûÓ¦ÓÃÖ±½Ó³¢ÊÔ·ÃÎÊÏàÍ¬µÄÉãÏñÍ·Éè±¸¡£
-¸Ä±äµ±Ç°ÓÃ»§Ô­Òò»îÔ¾Ïà»úµÄ¿Í»§Ó¦ÓÃ³ÌĞòÓÉÒÔÇ°µÄÓÃ»§ÕÊ»§±»ÇıÖğ¡£½øÈëÏà»úÊÇÓĞÏŞµÄÓÃ»§ÅäÖÃÎÄ¼şÊôÓÚµ±Ç°ÓÃ»§Éè±¸¡£ÔÚÊµ¼ùÖĞ,ÕâÒâÎ¶×ÅÒ»¸ö¡°¿ÍÈË¡±ÕÊ»§,ÀıÈç,½«ÎŞ·¨Àë¿ªÔËĞĞ¹ı³ÌÊ±Ê¹ÓÃÏà»ú×ÓÏµÍ³ÓÃ»§ÇĞ»»µ½Ò»¸ö²»Í¬µÄÕÊ»§¡£
+In This release, the model for accessing shared resources in the camera service has been changed from the previous â€œfirst come, first serveâ€ access model to an access model where high-priority processes are favored. Changes to the service behavior include:
+æ‚¨çš„åº”ç”¨ç¨‹åºç°åœ¨å¯ä»¥æ”¹å˜WifiConfigurationå¯¹è±¡çš„çŠ¶æ€åªæœ‰åœ¨æ‚¨åˆ›å»ºè¿™äº›å¯¹è±¡ã€‚ä½ ä¸å…è®¸ä¿®æ”¹æˆ–åˆ é™¤WifiConfigurationå¯¹è±¡åˆ›å»ºçš„ç”¨æˆ·æˆ–å…¶ä»–åº”ç”¨ç¨‹åºã€‚
+ä»¥å‰,å¦‚æœä¸€ä¸ªåº”ç”¨ç¨‹åºè¿«ä½¿è®¾å¤‡è¿æ¥åˆ°ä¸€ä¸ªç‰¹å®šçš„wi - fiç½‘ç»œé€šè¿‡ä½¿ç”¨enableNetworkä¸disableAllOthers = true()è®¾ç½®,è®¾å¤‡ä¸å…¶ä»–è¯¸å¦‚èœ‚çªæ•°æ®ç½‘ç»œã€‚åœ¨æœ¬ç‰ˆæœ¬ä¸­,è®¾å¤‡ä¸å†ä»å…¶ä»–ç½‘ç»œæ–­å¼€ã€‚å¦‚æœä½ çš„åº”ç”¨çš„targetSdkVersionâ€œ20â€æˆ–æ›´ä½,è¿™æ˜¯å›ºå®šåœ¨é€‰å®šçš„wi - fiç½‘ç»œã€‚å¦‚æœä½ çš„åº”ç”¨çš„targetSdkVersionâ€œ21â€æˆ–æ›´é«˜,ä½¿ç”¨multinetwork api(æ¯”å¦‚openConnection(),bindSocket(),å’Œæ–°bindProcessToNetwork()æ–¹æ³•),ä»¥ç¡®ä¿å…¶ç½‘ç»œæµé‡æ‰€é€‰ç½‘ç»œä¸Šå‘é€ã€‚
+ç›¸æœºæœåŠ¡æ›´æ”¹
+åœ¨æœ¬ç‰ˆæœ¬ä¸­,è¯¥æ¨¡å‹ç”¨äºè®¿é—®å…±äº«èµ„æºåœ¨ç›¸æœºæœåŠ¡æ”¹å˜äº†ä»ä»¥å‰çš„â€œå…ˆæ¥å…ˆå¾—â€è®¿é—®æ¨¡å‹ä¸€ä¸ªé«˜ä¼˜å…ˆçº§è¿›ç¨‹æ”¯æŒçš„è®¿é—®æ¨¡å‹ã€‚æ›´æ”¹æœåŠ¡è¡Œä¸ºåŒ…æ‹¬:
+Access to camera subsystem resources, including opening and configuring a camera device, is awarded based on the â€œpriorityâ€ of the client application process. Application processes with user-visible or foreground activities are generally given a higher-priority, making camera resource acquisition and use more dependable.
+Active camera clients for lower priority apps may be â€œevictedâ€ when a higher priority application attempts to use the camera. In the deprecated Camera API, this results in onError() being called for the evicted client. In the Camera2 API, it results in onDisconnected() being called for the evicted client.
+On devices with appropriate camera hardware, separate application processes are able to independently open and use separate camera devices simultaneously. However, multi-process use cases, where simultaneous access causes significant degradation of performance or capabilities of any of the open camera devices, are now detected and disallowed by the camera service. This change may result in â€œevictionsâ€ for lower priority clients even when no other app is directly attempting to access the same camera device.
+Changing the current user causes active camera clients in apps owned by the previous user account to be evicted. Access to the camera is limited to user profiles owned by the current device user. In practice, this means that a â€œGuestâ€ account, for example, will not be able to leave running processes that use the camera subsystem when the user has switched to a different account.
+è¿›å…¥ç›¸æœºå­ç³»ç»Ÿèµ„æº,åŒ…æ‹¬æ‰“å¼€å’Œé…ç½®ä¸€ä¸ªæ‘„åƒå¤´è®¾å¤‡,è·å¾—åŸºäºå®¢æˆ·ç«¯åº”ç”¨ç¨‹åºçš„â€œä¼˜å…ˆçº§â€çš„è¿‡ç¨‹ã€‚åº”ç”¨ç¨‹åºè¿›ç¨‹å’Œç”¨æˆ·å¯è§æˆ–å‰å°æ´»åŠ¨é€šå¸¸æ˜¯ç»™å®šä¸€ä¸ªé«˜ä¼˜å…ˆçº§,ä½¿ç›¸æœºèµ„æºè·å–å’Œä½¿ç”¨æ›´å¯é ã€‚
+æ´»è·ƒç›¸æœºå®¢æˆ·ä½ä¼˜å…ˆçº§çš„åº”ç”¨å¯èƒ½ä¼šâ€œé©±é€â€å½“ä¸€ä¸ªæ›´é«˜çš„ä¼˜å…ˆçº§åº”ç”¨ç¨‹åºè¯•å›¾ä½¿ç”¨ç›¸æœºã€‚å¼ƒç”¨çš„æ‘„åƒå¤´API,è¿™å¯¼è‡´onErroré©±é€å®¢æˆ·æœº()è¢«è°ƒç”¨ã€‚åœ¨Camera2 API,å®ƒå¯¼è‡´onDisconnectedé©±é€å®¢æˆ·æœº()è¢«è°ƒç”¨ã€‚
+ä¸åˆé€‚çš„ç›¸æœºç¡¬ä»¶è®¾å¤‡ä¸Š,å•ç‹¬çš„åº”ç”¨ç¨‹åºè¿›ç¨‹èƒ½å¤Ÿç‹¬ç«‹å¼€æ”¾å’ŒåŒæ—¶ä½¿ç”¨ç‹¬ç«‹çš„æ‘„åƒå¤´è®¾å¤‡ã€‚ç„¶è€Œ,å¤šè¿›ç¨‹çš„ç”¨ä¾‹,åŒæ—¶è®¿é—®é€ æˆé‡å¤§é™è§£æ€§èƒ½æˆ–åŠŸèƒ½çš„æ‰“å¼€æ‘„åƒå¤´è®¾å¤‡,ç°åœ¨ç›¸æœºæœåŠ¡å‘ç°å’Œä¸å…è®¸çš„ã€‚è¿™ç§å˜åŒ–å¯èƒ½å¯¼è‡´â€œé©±é€â€ä¸ºä½ä¼˜å…ˆçº§çš„å®¢æˆ·,å³ä½¿åœ¨æ²¡æœ‰å…¶ä»–åº”ç”¨ç›´æ¥å°è¯•è®¿é—®ç›¸åŒçš„æ‘„åƒå¤´è®¾å¤‡ã€‚
+æ”¹å˜å½“å‰ç”¨æˆ·åŸå› æ´»è·ƒç›¸æœºçš„å®¢æˆ·åº”ç”¨ç¨‹åºç”±ä»¥å‰çš„ç”¨æˆ·å¸æˆ·è¢«é©±é€ã€‚è¿›å…¥ç›¸æœºæ˜¯æœ‰é™çš„ç”¨æˆ·é…ç½®æ–‡ä»¶å±äºå½“å‰ç”¨æˆ·è®¾å¤‡ã€‚åœ¨å®è·µä¸­,è¿™æ„å‘³ç€ä¸€ä¸ªâ€œå®¢äººâ€å¸æˆ·,ä¾‹å¦‚,å°†æ— æ³•ç¦»å¼€è¿è¡Œè¿‡ç¨‹æ—¶ä½¿ç”¨ç›¸æœºå­ç³»ç»Ÿç”¨æˆ·åˆ‡æ¢åˆ°ä¸€ä¸ªä¸åŒçš„å¸æˆ·ã€‚
 Runtime
 
 The ART runtime now properly implements access rules for the newInstance() method. This change fixes a problem where Dalvik was checking access rules incorrectly in previous versions. If your app uses the newInstance() method and you want to override access checks, call the setAccessible() method with the input parameter set to true. If your app uses the v7 appcompat library or the v7 recyclerview library, you must update your app to use to the latest versions of these libraries. Otherwise, make sure that any custom classes referenced from XML are updated so that their class constructors are accessible.
-ÒÕÊõÏÖÔÚÔËĞĞÊ±ÕıÈ·ÊµÏÖ·ÃÎÊ¹æÔòµÄnewInstance()·½·¨¡£ÕâÖÖ±ä»¯ĞŞ¸´Ò»¸öÎÊÌâÔÚDalvik¼ì²é·ÃÎÊ¹æÔò´íÎóÔÚÖ®Ç°µÄ°æ±¾¡£Èç¹ûÄúµÄÓ¦ÓÃ³ÌĞòÊ¹ÓÃnewInstance()·½·¨ºÍÄãÏë¸²¸Ç·ÃÎÊ¼ì²é,³ÆÎªÖÖsetAccessible()·½·¨µÄÊäÈë²ÎÊıÉèÖÃÎªtrue¡£Èç¹ûÄúµÄÓ¦ÓÃ³ÌĞòÊ¹ÓÃv7 appcompat¿â»òv7 recyclerview¿â,Äú±ØĞë¸üĞÂÄúµÄÓ¦ÓÃ³ÌĞòÊ¹ÓÃÕâĞ©¿âµÄ×îĞÂ°æ±¾¡£·ñÔò,È·±£ÈÎºÎ¶¨ÖÆÀàÒıÓÃXML¸üĞÂÕâÀà¹¹Ôìº¯Êı·ÃÎÊ¡£
-This release updates the behavior of the dynamic linker. The dynamic linker now understands the difference between a library¡¯s soname and its path ( public bug 6670), and search by soname is now implemented. Apps which previously worked that have bad DT_NEEDED entries (usually absolute paths on the build machine¡¯s file system) may fail when loaded.
-Õâ¸ö°æ±¾¸üĞÂ¶¯Ì¬Á´½ÓÆ÷µÄĞĞÎª¡£¶¯Ì¬Á´½ÓÆ÷ÏÖÔÚÁË½âÍ¼Êé¹İµÄsonameºÍÂ·¾¶µÄÇø±ğ(6670Äê¹«¹²´íÎó),ºÍËÑË÷µÄsonameÏÖÔÚÊµÏÖµÄ¡£Ó¦ÓÃ³ÌĞòÖ®Ç°,ÓĞ»µDT_NEEDEDÌõÄ¿(Í¨³£ÊÇ¾ø¶ÔÂ·¾¶¹¹½¨»úÆ÷ÉÏµÄÎÄ¼şÏµÍ³)¼ÓÔØÊ±¿ÉÄÜ»áÊ§°Ü¡£
-The dlopen(3) RTLD_LOCAL flag is now correctly implemented. Note that RTLD_LOCAL is the default, so calls to dlopen(3) that didn¡¯t explicitly use RTLD_LOCAL will be affected (unless your app explicitly used RTLD_GLOBAL). With RTLD_LOCAL, symbols will not be made available to libraries loaded by later calls to dlopen(3) (as opposed to being referenced by DT_NEEDED entries).
-dlopen(3)RTLD_LOCAL¹úÆìÏÖÔÚÕıÈ·µØÖ´ĞĞ¡£×¢Òâ,RTLD_LOCALÊÇÄ¬ÈÏµÄ,ËùÒÔºôÓõdlopen(3)Ã»ÓĞÃ÷È·Ê¹ÓÃRTLD_LOCAL»áÊÜµ½Ó°Ïì(³ı·ÇÄãµÄÓ¦ÓÃ³ÌĞòÏÔÊ½µØÊ¹ÓÃRTLD_GLOBAL)¡£RTLD_LOCAL,·ûºÅ½«²»»áÌá¹©¸ø¿â×°Èëºóµ÷ÓÃdlopen(3)(¶ø²»ÊÇ±»DT_NEEDEDÒıÓÃÌõÄ¿)¡£
+è‰ºæœ¯ç°åœ¨è¿è¡Œæ—¶æ­£ç¡®å®ç°è®¿é—®è§„åˆ™çš„newInstance()æ–¹æ³•ã€‚è¿™ç§å˜åŒ–ä¿®å¤ä¸€ä¸ªé—®é¢˜åœ¨Dalvikæ£€æŸ¥è®¿é—®è§„åˆ™é”™è¯¯åœ¨ä¹‹å‰çš„ç‰ˆæœ¬ã€‚å¦‚æœæ‚¨çš„åº”ç”¨ç¨‹åºä½¿ç”¨newInstance()æ–¹æ³•å’Œä½ æƒ³è¦†ç›–è®¿é—®æ£€æŸ¥,ç§°ä¸ºç§setAccessible()æ–¹æ³•çš„è¾“å…¥å‚æ•°è®¾ç½®ä¸ºtrueã€‚å¦‚æœæ‚¨çš„åº”ç”¨ç¨‹åºä½¿ç”¨v7 appcompatåº“æˆ–v7 recyclerviewåº“,æ‚¨å¿…é¡»æ›´æ–°æ‚¨çš„åº”ç”¨ç¨‹åºä½¿ç”¨è¿™äº›åº“çš„æœ€æ–°ç‰ˆæœ¬ã€‚å¦åˆ™,ç¡®ä¿ä»»ä½•å®šåˆ¶ç±»å¼•ç”¨XMLæ›´æ–°è¿™ç±»æ„é€ å‡½æ•°è®¿é—®ã€‚
+This release updates the behavior of the dynamic linker. The dynamic linker now understands the difference between a libraryâ€™s soname and its path ( public bug 6670), and search by soname is now implemented. Apps which previously worked that have bad DT_NEEDED entries (usually absolute paths on the build machineâ€™s file system) may fail when loaded.
+è¿™ä¸ªç‰ˆæœ¬æ›´æ–°åŠ¨æ€é“¾æ¥å™¨çš„è¡Œä¸ºã€‚åŠ¨æ€é“¾æ¥å™¨ç°åœ¨äº†è§£å›¾ä¹¦é¦†çš„sonameå’Œè·¯å¾„çš„åŒºåˆ«(6670å¹´å…¬å…±é”™è¯¯),å’Œæœç´¢çš„sonameç°åœ¨å®ç°çš„ã€‚åº”ç”¨ç¨‹åºä¹‹å‰,æœ‰åDT_NEEDEDæ¡ç›®(é€šå¸¸æ˜¯ç»å¯¹è·¯å¾„æ„å»ºæœºå™¨ä¸Šçš„æ–‡ä»¶ç³»ç»Ÿ)åŠ è½½æ—¶å¯èƒ½ä¼šå¤±è´¥ã€‚
+The dlopen(3) RTLD_LOCAL flag is now correctly implemented. Note that RTLD_LOCAL is the default, so calls to dlopen(3) that didnâ€™t explicitly use RTLD_LOCAL will be affected (unless your app explicitly used RTLD_GLOBAL). With RTLD_LOCAL, symbols will not be made available to libraries loaded by later calls to dlopen(3) (as opposed to being referenced by DT_NEEDED entries).
+dlopen(3)RTLD_LOCALå›½æ——ç°åœ¨æ­£ç¡®åœ°æ‰§è¡Œã€‚æ³¨æ„,RTLD_LOCALæ˜¯é»˜è®¤çš„,æ‰€ä»¥å‘¼ådlopen(3)æ²¡æœ‰æ˜ç¡®ä½¿ç”¨RTLD_LOCALä¼šå—åˆ°å½±å“(é™¤éä½ çš„åº”ç”¨ç¨‹åºæ˜¾å¼åœ°ä½¿ç”¨RTLD_GLOBAL)ã€‚RTLD_LOCAL,ç¬¦å·å°†ä¸ä¼šæä¾›ç»™åº“è£…å…¥åè°ƒç”¨dlopen(3)(è€Œä¸æ˜¯è¢«DT_NEEDEDå¼•ç”¨æ¡ç›®)ã€‚
 On previous versions of Android, if your app requested the system to load a shared library with text relocations, the system displayed a warning but still allowed the library to be loaded. Beginning in this release, the system rejects this library if your app's target SDK version is 23 or higher. To help you detect if a library failed to load, your app should log the dlopen(3) failure, and include the problem description text that the dlerror(3) call returns. To learn more about handling text relocations, see this guide.
-ÔÚÒÔÇ°°æ±¾µÄAndroidÏµÍ³,Èç¹ûÄúµÄÓ¦ÓÃ³ÌĞòÇëÇóÏµÍ³¼ÓÔØ¹²Ïí¿â°áÇ¨ÓëÎÄ±¾,ÏµÍ³ÏÔÊ¾Ò»¸ö¾¯¸æ,µ«ÈÔÔÊĞíÍ¼Êé¹İ±»¼ÓÔØ¡£¿ªÊ¼ÔÚ±¾°æ±¾ÖĞ,ÏµÍ³¾Ü¾øÕâ¸ö¿âÈç¹ûÄãµÄÓ¦ÓÃ³ÌĞòµÄÄ¿±êSDK°æ±¾ÊÇ23»ò¸ü¸ß¡£°ïÖúÄã·¢ÏÖÈç¹ûÒ»¸ö¿â¼ÓÔØÊ§°Ü,ÄúµÄÓ¦ÓÃ³ÌĞòÓ¦¸Ã¼ÇÂ¼dlopen(3)Ê§°Ü,²¢°üÀ¨ÎÊÌâÃèÊöÎÄ±¾dlerror(3)µ÷ÓÃ·µ»Ø¡£ÁË½â¸ü¶à¹ØÓÚ´¦ÀíÎÄ±¾°áÇ¨,Çë²ÎÔÄ±¾Ö¸ÄÏ¡£
+åœ¨ä»¥å‰ç‰ˆæœ¬çš„Androidç³»ç»Ÿ,å¦‚æœæ‚¨çš„åº”ç”¨ç¨‹åºè¯·æ±‚ç³»ç»ŸåŠ è½½å…±äº«åº“æ¬è¿ä¸æ–‡æœ¬,ç³»ç»Ÿæ˜¾ç¤ºä¸€ä¸ªè­¦å‘Š,ä½†ä»å…è®¸å›¾ä¹¦é¦†è¢«åŠ è½½ã€‚å¼€å§‹åœ¨æœ¬ç‰ˆæœ¬ä¸­,ç³»ç»Ÿæ‹’ç»è¿™ä¸ªåº“å¦‚æœä½ çš„åº”ç”¨ç¨‹åºçš„ç›®æ ‡SDKç‰ˆæœ¬æ˜¯23æˆ–æ›´é«˜ã€‚å¸®åŠ©ä½ å‘ç°å¦‚æœä¸€ä¸ªåº“åŠ è½½å¤±è´¥,æ‚¨çš„åº”ç”¨ç¨‹åºåº”è¯¥è®°å½•dlopen(3)å¤±è´¥,å¹¶åŒ…æ‹¬é—®é¢˜æè¿°æ–‡æœ¬dlerror(3)è°ƒç”¨è¿”å›ã€‚äº†è§£æ›´å¤šå…³äºå¤„ç†æ–‡æœ¬æ¬è¿,è¯·å‚é˜…æœ¬æŒ‡å—ã€‚
 APK Validation
 The platform now performs stricter validation of APKs. An APK is considered corrupt if a file is declared in the manifest but not present in the APK itself. An APK must be re-signed if any of the contents are removed.
-apkµÄÆ½Ì¨ÏÖÔÚÖ´ĞĞ¸üÑÏ¸ñµÄÑéÖ¤¡£APK±»ÈÏÎªÊÇ¸¯°ÜµÄ,Èç¹ûÒ»¸öÎÄ¼şÔÚÇåµ¥ÖĞÉùÃ÷,¶ø²»ÊÇ³öÏÖÔÚAPKÎÄ¼ş±¾Éí¡£APK±ØĞëĞøÇ©Èç¹ûÈÎºÎÄÚÈİÉ¾³ı¡£
+apkçš„å¹³å°ç°åœ¨æ‰§è¡Œæ›´ä¸¥æ ¼çš„éªŒè¯ã€‚APKè¢«è®¤ä¸ºæ˜¯è…è´¥çš„,å¦‚æœä¸€ä¸ªæ–‡ä»¶åœ¨æ¸…å•ä¸­å£°æ˜,è€Œä¸æ˜¯å‡ºç°åœ¨APKæ–‡ä»¶æœ¬èº«ã€‚APKå¿…é¡»ç»­ç­¾å¦‚æœä»»ä½•å†…å®¹åˆ é™¤ã€‚
 USB Connection
 Device connections through the USB port are now set to charge-only mode by default. To access the device and its content over a USB connection, users must explicitly grant permission for such interactions. If your app supports user interactions with the device over a USB port, take into consideration that the interaction must be explicitly enabled.
-Éè±¸Í¨¹ıUSB¶Ë¿ÚÁ¬½ÓÏÖÔÚÄ¬ÈÏÉèÖÃÎª½öÊÕÈ¡Ä£Ê½¡£·ÃÎÊÉè±¸Í¨¹ıUSBÁ¬½ÓºÍËüµÄÄÚÈİ,ÓÃ»§±ØĞëÏÔÊ½µØÔÊĞíÕâÖÖ½»»¥¡£Èç¹ûÄúµÄÓ¦ÓÃ³ÌĞòÖ§³ÖÓÃ»§½»»¥Éè±¸Í¨¹ıUSB¶Ë¿Ú,¿¼ÂÇµ½½»»¥±ØĞëÏÔÊ½µØÆôÓÃ¡£
+è®¾å¤‡é€šè¿‡USBç«¯å£è¿æ¥ç°åœ¨é»˜è®¤è®¾ç½®ä¸ºä»…æ”¶å–æ¨¡å¼ã€‚è®¿é—®è®¾å¤‡é€šè¿‡USBè¿æ¥å’Œå®ƒçš„å†…å®¹,ç”¨æˆ·å¿…é¡»æ˜¾å¼åœ°å…è®¸è¿™ç§äº¤äº’ã€‚å¦‚æœæ‚¨çš„åº”ç”¨ç¨‹åºæ”¯æŒç”¨æˆ·äº¤äº’è®¾å¤‡é€šè¿‡USBç«¯å£,è€ƒè™‘åˆ°äº¤äº’å¿…é¡»æ˜¾å¼åœ°å¯ç”¨ã€‚
 Android for Work Changes
 This release includes the following behavior changes for Android for Work:
-Õâ¸ö°æ±¾°üÀ¨ÒÔÏÂĞĞÎª±ä»¯ÎªAndroid¹¤×÷:
+è¿™ä¸ªç‰ˆæœ¬åŒ…æ‹¬ä»¥ä¸‹è¡Œä¸ºå˜åŒ–ä¸ºAndroidå·¥ä½œ:
 
 Work contacts in personal contexts. The Google Dialer Call Log now displays work contacts when the user views past calls. Setting setCrossProfileCallerIdDisabled() to true hides the work profile contacts in the Google Dialer Call Log. Work contacts can be displayed along with personal contacts to devices over Bluetooth only if you set setBluetoothContactSharingDisabled() to false. By default, it is set to true.
 Wi-Fi configuration removal: Wi-Fi configurations added by a Profile Owner (for example, through calls to the addNetwork() method) are now removed if that work profile is deleted.
 Wi-Fi configuration lockdown: Any Wi-Fi configuration created by an active Device Owner can no longer be modified or deleted by the user if WIFI_DEVICE_OWNER_CONFIGS_LOCKDOWN is non-zero. The user can still create and modify their own Wi-Fi configurations. Active Device Owners have the privilege of editing or removing any Wi-Fi configurations, including those not created by them.
 Download device policy controller via Google account addition: When a Google account that requires management via a device policy controller (DPC) app is added to a device outside of a managed context, the add account flow now prompts the user to install the appropriate WPC. This behavior also applies to accounts added via Settings > Accounts and in the initial device setup wizard.
-ÔÚ¸öÈË±³¾°ÁªÏµ¹¤×÷¡£ÏÖÔÚ¹È¸è²¦ºÅÆ÷µ÷ÓÃÈÕÖ¾ÏÔÊ¾¹¤×÷ÁªÏµÈËµç»°¹ıÈ¥µ±ÓÃ»§ÊÓÍ¼¡£ÉèÖÃsetCrossProfileCallerIdDisabled()ÕæÕıÒş²ØµÄ¹¤×÷¸ÅÒªÎÄ¼şÔÚ¹È¸èÁªÏµÈË²¦ºÅÆ÷µ÷ÓÃÈÕÖ¾¡£¹¤×÷ÁªÏµÈË¿ÉÒÔÏÔÊ¾Á¬Í¬¸öÈËÁªÏµÔÚÀ¶ÑÀÉè±¸Ö»ÓĞÔÚÉèÖÃsetBluetoothContactSharingDisabled()Îªfalse¡£Ä¬ÈÏÇé¿öÏÂ,Ëü±»ÉèÖÃÎªtrue¡£
-ÎŞÏßÍøÂçÅäÖÃÉ¾³ı:wi - fiÅäÖÃÌí¼ÓÒ»¸öÅäÖÃÎÄ¼şµÄËùÓĞÕß(ÀıÈç,Í¨¹ıµ÷ÓÃaddNetwork()·½·¨)ÏÖÔÚÉ¾³ı,Èç¹û¹¤×÷¸ÅÒªÎÄ¼ş±»É¾³ı¡£
-ÎŞÏßÍøÂçÅäÖÃËø¶¨:ÈÎºÎÎŞÏßÍøÂçÅäÖÃÓÉÒ»¸ö»îÔ¾µÄÉè±¸ËùÓĞÕß¿ÉÒÔ²»ÔÙ±»ĞŞ¸Ä»òÉ¾³ıµÄÓÃ»§Èç¹ûWIFI_DEVICE_OWNER_CONFIGS_LOCKDOWNÊÇ·ÇÁãµÄ¡£ÓÃ»§»¹¿ÉÒÔ´´½¨ºÍĞŞ¸Ä×Ô¼ºµÄÎŞÏßÍøÂçÅäÖÃ¡£»îÔ¾Éè±¸ËùÓĞÕßµÄÌØÈ¨±à¼­»òÉ¾³ıÈÎºÎÎŞÏßÍøÂçÅäÖÃ,°üÀ¨ÄÇĞ©Ã»ÓĞ´´½¨¡£
-ÏÂÔØÉè±¸Õş²ß¿ØÖÆÆ÷Í¨¹ı¹È¸èÕË»§Ìí¼Ó:µ±Ò»¸ö¹È¸èÕÊºÅ,ĞèÒªÍ¨¹ıÉè±¸¹ÜÀíÕş²ß¿ØÖÆÆ÷(DPC)Ó¦ÓÃ³ÌĞòÌí¼Óµ½Éè±¸¹ÜÀíÉÏÏÂÎÄÖ®Íâ,Ìí¼ÓÕË»§Á÷ÏÖÔÚÌáÊ¾ÓÃ»§°²×°ÊÊµ±µÄÅ®¾¯¹Ù¡£ÕâÖÖĞĞÎªÒ²ÊÊÓÃÓÚÕË»§Í¨¹ıÉèÖÃ>Ìí¼ÓÕË»§ºÍÔÚ×î³õµÄÉè±¸°²×°Ïòµ¼¡£
+åœ¨ä¸ªäººèƒŒæ™¯è”ç³»å·¥ä½œã€‚ç°åœ¨è°·æ­Œæ‹¨å·å™¨è°ƒç”¨æ—¥å¿—æ˜¾ç¤ºå·¥ä½œè”ç³»äººç”µè¯è¿‡å»å½“ç”¨æˆ·è§†å›¾ã€‚è®¾ç½®setCrossProfileCallerIdDisabled()çœŸæ­£éšè—çš„å·¥ä½œæ¦‚è¦æ–‡ä»¶åœ¨è°·æ­Œè”ç³»äººæ‹¨å·å™¨è°ƒç”¨æ—¥å¿—ã€‚å·¥ä½œè”ç³»äººå¯ä»¥æ˜¾ç¤ºè¿åŒä¸ªäººè”ç³»åœ¨è“ç‰™è®¾å¤‡åªæœ‰åœ¨è®¾ç½®setBluetoothContactSharingDisabled()ä¸ºfalseã€‚é»˜è®¤æƒ…å†µä¸‹,å®ƒè¢«è®¾ç½®ä¸ºtrueã€‚
+æ— çº¿ç½‘ç»œé…ç½®åˆ é™¤:wi - fié…ç½®æ·»åŠ ä¸€ä¸ªé…ç½®æ–‡ä»¶çš„æ‰€æœ‰è€…(ä¾‹å¦‚,é€šè¿‡è°ƒç”¨addNetwork()æ–¹æ³•)ç°åœ¨åˆ é™¤,å¦‚æœå·¥ä½œæ¦‚è¦æ–‡ä»¶è¢«åˆ é™¤ã€‚
+æ— çº¿ç½‘ç»œé…ç½®é”å®š:ä»»ä½•æ— çº¿ç½‘ç»œé…ç½®ç”±ä¸€ä¸ªæ´»è·ƒçš„è®¾å¤‡æ‰€æœ‰è€…å¯ä»¥ä¸å†è¢«ä¿®æ”¹æˆ–åˆ é™¤çš„ç”¨æˆ·å¦‚æœWIFI_DEVICE_OWNER_CONFIGS_LOCKDOWNæ˜¯éé›¶çš„ã€‚ç”¨æˆ·è¿˜å¯ä»¥åˆ›å»ºå’Œä¿®æ”¹è‡ªå·±çš„æ— çº¿ç½‘ç»œé…ç½®ã€‚æ´»è·ƒè®¾å¤‡æ‰€æœ‰è€…çš„ç‰¹æƒç¼–è¾‘æˆ–åˆ é™¤ä»»ä½•æ— çº¿ç½‘ç»œé…ç½®,åŒ…æ‹¬é‚£äº›æ²¡æœ‰åˆ›å»ºã€‚
+ä¸‹è½½è®¾å¤‡æ”¿ç­–æ§åˆ¶å™¨é€šè¿‡è°·æ­Œè´¦æˆ·æ·»åŠ :å½“ä¸€ä¸ªè°·æ­Œå¸å·,éœ€è¦é€šè¿‡è®¾å¤‡ç®¡ç†æ”¿ç­–æ§åˆ¶å™¨(DPC)åº”ç”¨ç¨‹åºæ·»åŠ åˆ°è®¾å¤‡ç®¡ç†ä¸Šä¸‹æ–‡ä¹‹å¤–,æ·»åŠ è´¦æˆ·æµç°åœ¨æç¤ºç”¨æˆ·å®‰è£…é€‚å½“çš„å¥³è­¦å®˜ã€‚è¿™ç§è¡Œä¸ºä¹Ÿé€‚ç”¨äºè´¦æˆ·é€šè¿‡è®¾ç½®>æ·»åŠ è´¦æˆ·å’Œåœ¨æœ€åˆçš„è®¾å¤‡å®‰è£…å‘å¯¼ã€‚
 Changes to specific DevicePolicyManager API behaviors:
-¸Ä±äÌØ¶¨DevicePolicyManager APIĞĞÎª:
-Calling the setCameraDisabled() method affects the camera for the calling user only; calling it from the managed profile doesn¡¯t affect camera apps running on the primary user.
+æ”¹å˜ç‰¹å®šDevicePolicyManager APIè¡Œä¸º:
+Calling the setCameraDisabled() method affects the camera for the calling user only; calling it from the managed profile doesnâ€™t affect camera apps running on the primary user.
 In addition, the setKeyguardDisabledFeatures() method is now available for Profile Owners, as well as to Device Owners.
-µ÷ÓÃsetCameraDisabled()·½·¨µ÷ÓÃÓÃ»§Ö»»áÓ°ÏìÏà»ú;µ÷ÓÃËü´ÓÍĞ¹Üµµ°¸²»Ó°ÏìÏà»úÓ¦ÓÃ³ÌĞòÔËĞĞÔÚÖ÷ÓÃ»§¡£
-´ËÍâ,setKeyguardDisabledFeatures()·½·¨ÏÖÔÚ¿ÉÒÔÎª¸ÅÒªÎÄ¼şËùÓĞÕß,ÒÔ¼°Éè±¸µÄÖ÷ÈË¡£
+è°ƒç”¨setCameraDisabled()æ–¹æ³•è°ƒç”¨ç”¨æˆ·åªä¼šå½±å“ç›¸æœº;è°ƒç”¨å®ƒä»æ‰˜ç®¡æ¡£æ¡ˆä¸å½±å“ç›¸æœºåº”ç”¨ç¨‹åºè¿è¡Œåœ¨ä¸»ç”¨æˆ·ã€‚
+æ­¤å¤–,setKeyguardDisabledFeatures()æ–¹æ³•ç°åœ¨å¯ä»¥ä¸ºæ¦‚è¦æ–‡ä»¶æ‰€æœ‰è€…,ä»¥åŠè®¾å¤‡çš„ä¸»äººã€‚
 A Profile Owner can set these keyguard restrictions:
-KEYGUARD_DISABLE_TRUST_AGENTS and KEYGUARD_DISABLE_FINGERPRINT, which affect the keyguard settings for the profile¡¯s parent user.
+KEYGUARD_DISABLE_TRUST_AGENTS and KEYGUARD_DISABLE_FINGERPRINT, which affect the keyguard settings for the profileâ€™s parent user.
 KEYGUARD_DISABLE_UNREDACTED_NOTIFICATIONS, which only affects notifications generated by applications in the managed profile.
 The createAndInitializeUser() and createUser() methods have been deprecated.
 The setScreenCaptureDisabled() method now also blocks the assist structure when an app of the given user is in the foreground.
@@ -138,9 +138,9 @@ EXTRA_PROVISIONING_RESET_PROTECTION_PARAMETERS is removed so NFC bump provisioni
 You can now use the EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE extra to pass data to the device owner app during NFC provisioning of the managed device.
 Android for Work APIs are optimized for M runtime permissions, including Work profiles, assist layer, and others. New DevicePolicyManager permission APIs don't affect pre-M apps.
 When users back out of the synchronous part of the setup flow initiated through an ACTION_PROVISION_MANAGED_PROFILE or ACTION_PROVISION_MANAGED_DEVICE intent, the system now returns a RESULT_CANCELED result code.
-ÄúÏÖÔÚ¿ÉÒÔÊ¹ÓÃEXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE¶îÍâ´«µİÊı¾İµ½Éè±¸ËùÓĞÕßÔÚNFCÓ¦ÓÃÅäÖÃµÄÉè±¸¹ÜÀí¡£
-Android api¹¤×÷ÓÅ»¯ÔËĞĞÈ¨ÏŞ,°üÀ¨¹¤×÷µµ°¸,Ğ­Öú²ã,ºÍÆäËûÈË¡£ĞÂµÄDevicePolicyManagerĞí¿Éapi²»Ó°Ïìpre-MÓ¦ÓÃ¡£
-µ±ÓÃ»§ÍË³öÍ¬²½µÄ²¿·ÖÉèÖÃÁ÷Á¿Í¨¹ıACTION_PROVISION_MANAGED_PROFILE·¢Æğ»òACTION_PROVISION_MANAGED_DEVICEÒâÍ¼,ÏµÍ³ÏÖÔÚ·µ»ØÒ»¸öRESULT_CANCELED½á¹û´úÂë¡£
+æ‚¨ç°åœ¨å¯ä»¥ä½¿ç”¨EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLEé¢å¤–ä¼ é€’æ•°æ®åˆ°è®¾å¤‡æ‰€æœ‰è€…åœ¨NFCåº”ç”¨é…ç½®çš„è®¾å¤‡ç®¡ç†ã€‚
+Android apiå·¥ä½œä¼˜åŒ–è¿è¡Œæƒé™,åŒ…æ‹¬å·¥ä½œæ¡£æ¡ˆ,ååŠ©å±‚,å’Œå…¶ä»–äººã€‚æ–°çš„DevicePolicyManagerè®¸å¯apiä¸å½±å“pre-Måº”ç”¨ã€‚
+å½“ç”¨æˆ·é€€å‡ºåŒæ­¥çš„éƒ¨åˆ†è®¾ç½®æµé‡é€šè¿‡ACTION_PROVISION_MANAGED_PROFILEå‘èµ·æˆ–ACTION_PROVISION_MANAGED_DEVICEæ„å›¾,ç³»ç»Ÿç°åœ¨è¿”å›ä¸€ä¸ªRESULT_CANCELEDç»“æœä»£ç ã€‚
 Changes to other APIs:
 Data Usage: The android.app.usage.NetworkUsageStats class has been renamed NetworkStats.
 Changes to global settings:

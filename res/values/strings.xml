@@ -281,5 +281,13 @@
     </plurals>
 
     <string name="acessibility_recurrence_choose_end_date_description" msgid="5899029840837836711">"更改结束日期"</string>
+    <string name="title_activity_canvas001">Canvas001Activity</string>
+    <string name="title_activity_my_rect">MyRectActivity</string>
+    <string name="title_activity_alpha_bitmap">AlphaBitmapActivity</string>
+    <string name="title_activity_grid_layout">GridLayoutActivity</string>
+    <string name="title_activity_grid_layout001">GridLayout001Activity</string>
+    <string name="title_activity_grid_layout002">GridLayout002Activity</string>
+    <string name="title_activity_grid_layout003">GridLayout003Activity</string>
+    <string name="title_activity_grid_layout004">GridLayout004Activity</string>
 
 </resources>
