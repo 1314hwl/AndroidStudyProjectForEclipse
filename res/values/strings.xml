@@ -290,5 +290,6 @@
     <string name="title_activity_grid_layout003">GridLayout003Activity</string>
     <string name="title_activity_grid_layout004">GridLayout004Activity</string>
     <string name="title_activity_action_bar001">ActionBar001Activity</string>
+    <string name="title_activity_switcher">SwitcherActivity</string>
 
 </resources>

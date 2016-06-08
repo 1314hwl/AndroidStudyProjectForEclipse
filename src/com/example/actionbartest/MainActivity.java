@@ -4,6 +4,7 @@ import java.lang.reflect.Field;
 
 import com.example.actionbartest.actionBar.ActionBar001Activity;
 import com.example.actionbartest.view.grid.GridLayoutActivity;
+import com.example.actionbartest.view.switcher.SwitcherActivity;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -97,5 +98,11 @@ public class MainActivity extends Activity implements OnClickListener {
 		Intent toAcitonBar = new Intent();
 		toAcitonBar.setClass(MainActivity.this, ActionBar001Activity.class);
 		startActivity(toAcitonBar);
+	}
+
+	public void switcherClick(View v) {
+		Intent toSwitcher = new Intent();
+		toSwitcher.setClass(MainActivity.this, SwitcherActivity.class);
+		startActivity(toSwitcher);
 	}
 }

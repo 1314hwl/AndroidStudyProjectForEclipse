@@ -1,0 +1,16 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <com.example.actionbartest.view.switcher.TrackWithSwitch
+        android:id="@+id/repeat_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textOff=""
+        android:textOn=""
+        android:thumb="@drawable/tm_switch_thumb_select"
+        android:track="@drawable/tm_switch_track_select" />
+
+</RelativeLayout>

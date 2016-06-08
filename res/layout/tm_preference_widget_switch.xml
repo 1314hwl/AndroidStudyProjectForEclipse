@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Switch
+    android:id="@*android:id/switchWidget"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentStart="true"
+    android:background="@null"
+    android:clickable="false"
+    android:focusable="false"
+    android:thumb="@drawable/tm_switch_thumb_select"
+    android:track="@drawable/tm_switch_track_select"/>

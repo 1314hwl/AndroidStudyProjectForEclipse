@@ -27,9 +27,11 @@
                 android:text="actionBar" />
 
             <Button
+                android:id="@+id/switcher_btn"
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
-                android:text="1" />
+                android:onClick="switcherClick"
+                android:text="switcher" />
 
             <Button
                 android:layout_columnWeight="1"
