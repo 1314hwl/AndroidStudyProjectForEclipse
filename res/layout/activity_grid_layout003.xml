@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:alignmentMode="alignBounds"
+    android:columnCount="4"
+    android:columnOrderPreserved="false"
+    android:useDefaultMargins="true" >
+
+    <TextView
+        android:layout_columnSpan="4"
+        android:layout_gravity="right"
+        android:background="@android:color/background_dark"
+        android:text="Email setup"
+        android:textSize="32dip" />
+
+    <TextView
+        android:layout_columnSpan="4"
+        android:layout_gravity="left"
+        android:background="@android:color/background_light"
+        android:text="You can configure email in a few simple steps:You can configure email in a few simple steps:"
+        android:textSize="16dip" />
+
+    <TextView
+        android:layout_gravity="right"
+        android:text="Email address:" />
+
+    <EditText android:ems="10" />
+
+    <TextView
+        android:layout_column="0"
+        android:layout_gravity="right"
+        android:text="Password:" />
+
+    <EditText android:ems="8" />
+
+    <Button
+        android:layout_column="3"
+        android:layout_row="4"
+        android:text="Manual setup" />
+
+    <Button
+        android:layout_column="3"
+        android:layout_gravity="fill_horizontal"
+        android:text="Next" />
+
+</GridLayout>

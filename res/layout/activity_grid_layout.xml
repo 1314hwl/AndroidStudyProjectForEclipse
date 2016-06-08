@@ -1,0 +1,27 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <Button
+        android:id="@+id/simple_form"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="grid_layout_simple_form" />
+
+    <Button
+        android:id="@+id/from_xml"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="grid_layout_from_xml" />
+
+    <Button
+        android:id="@+id/from_java"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="grid_layout_from_java"
+        android:visibility="visible" />
+
+</LinearLayout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="MyRectView">
+        <attr name="rectW" format="dimension" />
+        <attr name="rectH" format="dimension" />
+        <attr name="rectBg" format="color"></attr>
+    </declare-styleable>
+
+</resources>

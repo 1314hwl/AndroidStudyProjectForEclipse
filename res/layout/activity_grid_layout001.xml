@@ -1,0 +1,51 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alignmentMode="alignBounds"
+        android:background="@drawable/btn_default_normal"
+        android:columnCount="4"
+        android:rowCount="8" >
+
+        <TextView
+            android:layout_columnSpan="4"
+            android:text="You can configure email in a few simple steps:You can configure email in a few simple steps:" >
+        </TextView>
+
+        <Button
+            android:layout_columnSpan="2"
+            android:layout_gravity="fill"
+            android:layout_rowSpan="2"
+            android:gravity="center"
+            android:text="1" >
+        </Button>
+
+        <Button
+            android:layout_columnSpan="2"
+            android:layout_gravity="fill"
+            android:layout_rowSpan="2"
+            android:text="1" >
+        </Button>
+
+        <Button
+            android:layout_columnWeight="1"
+            android:text="1" >
+        </Button>
+
+        <Button
+            android:layout_columnWeight="1"
+            android:text="1" >
+        </Button>
+
+        <Button
+            android:layout_columnWeight="1"
+            android:text="1" >
+        </Button>
+    </GridLayout>
+
+</RelativeLayout>
