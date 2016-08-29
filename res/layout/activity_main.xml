@@ -34,8 +34,10 @@
                 android:text="switcher" />
 
             <Button
+                android:id="@+id/screen_btn"
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
+                android:onClick="myScreenClick"
                 android:text="1" />
 
             <Button

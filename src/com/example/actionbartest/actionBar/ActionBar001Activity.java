@@ -70,10 +70,10 @@ public class ActionBar001Activity extends Activity {
 			mCursorDrawableRes.setAccessible(true);
 			mCursorDrawableRes.set(mTv, R.drawable.cursor_color);
 			// 设置放大镜logo图标
-			Class<?> argClass = mSearchView.getClass();
-			Field mSearchHintIconField = argClass.getDeclaredField("mSearchHintIcon");
-			mSearchHintIconField.setAccessible(true);
-			mSearchHintIconField.set(mSearchView, getDrawable(R.drawable.ic_eben_menu_search_holo_light));
+//			Class<?> argClass = mSearchView.getClass();
+//			Field mSearchHintIconField = argClass.getDeclaredField("mSearchHintIcon");
+//			mSearchHintIconField.setAccessible(true);
+//			mSearchHintIconField.set(mSearchView, getDrawable(R.drawable.ic_eben_menu_search_holo_light));
 
 		} catch (Exception e) {
 			e.printStackTrace();

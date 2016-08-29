@@ -291,5 +291,6 @@
     <string name="title_activity_grid_layout004">GridLayout004Activity</string>
     <string name="title_activity_action_bar001">ActionBar001Activity</string>
     <string name="title_activity_switcher">SwitcherActivity</string>
+    <string name="title_activity_my_screen">MyScreenActivity</string>
 
 </resources>

@@ -3,6 +3,7 @@ package com.example.actionbartest;
 import java.lang.reflect.Field;
 
 import com.example.actionbartest.actionBar.ActionBar001Activity;
+import com.example.actionbartest.view.MyScreenActivity;
 import com.example.actionbartest.view.grid.GridLayoutActivity;
 import com.example.actionbartest.view.switcher.SwitcherActivity;
 
@@ -15,6 +16,7 @@ import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 
@@ -33,6 +35,10 @@ public class MainActivity extends Activity implements OnClickListener {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		// 隐藏标题栏
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		// 隐藏状态栏
+		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		setContentView(R.layout.activity_main);
 		metric = new DisplayMetrics();
 		WindowManager manager = (WindowManager) this.getSystemService(Context.WINDOW_SERVICE);
@@ -103,6 +109,12 @@ public class MainActivity extends Activity implements OnClickListener {
 	public void switcherClick(View v) {
 		Intent toSwitcher = new Intent();
 		toSwitcher.setClass(MainActivity.this, SwitcherActivity.class);
+		startActivity(toSwitcher);
+	}
+
+	public void myScreenClick(View v) {
+		Intent toSwitcher = new Intent();
+		toSwitcher.setClass(MainActivity.this, MyScreenActivity.class);
 		startActivity(toSwitcher);
 	}
 }
